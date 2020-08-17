@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Mian {
+public class Main {
     @Autowired
     private ApplicationContext applicationContext= new ClassPathXmlApplicationContext("applicationContext.xml");
     public void init(){
@@ -13,6 +13,6 @@ public class Mian {
     }
 
     public static void main(String[] args) {
-        new Mian().init();
+        new Main().init();
     }
 }
