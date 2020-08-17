@@ -10,8 +10,8 @@ public class Args {
     private ListIterator<String> currentArgument;
 
     public Args(String schema, String[] args) throws ArgsException {
-        marshalers = new HashMap<Character, ArgumentMarshaler>();
-        argsFound = new HashSet<Character>();
+        marshalers = new HashMap<>();
+        argsFound = new HashSet<>();
         parseSchema(schema);
         parseArgumentStrings(Arrays.asList(args));
     }
@@ -103,11 +103,4 @@ public class Args {
         return IntegerArgumentMarshaler.getValue(marshalers.get(arg));
     }
 
-//    public double getDouble(char arg) {
-//        return DoubleArgumentMarshaler.getValue(marshalers.get(arg));
-//        }
-//
-//    public String[] getstringArray(char arg) {
-//        return StringArrayArgumentMarshaler.getValue(marshalers.get(arg));
-//        }
 }

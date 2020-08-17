@@ -3,7 +3,7 @@ package com.zsy.args;
 import lombok.Getter;
 import lombok.Setter;
 
-import static com.zsy.args.ErrorCode.*;
+import static com.zsy.args.ErrorCode.OK;
 
 @Setter
 @Getter
@@ -24,11 +24,13 @@ public class ArgsException extends Exception {
     }
 
     public ArgsException(ErrorCode errorCode, String errorParameter) {
-        this.errorCode = errorCode;this.errorParameter = errorParameter;
+        this.errorCode = errorCode;
+        this.errorParameter = errorParameter;
     }
 
-    public ArgsException(ErrorCode errorCode,char errorArgumentId, String errorParameter) {
-        this.errorCode = errorCode;this.errorParameter = errorParameter;
+    public ArgsException(ErrorCode errorCode, char errorArgumentId, String errorParameter) {
+        this.errorCode = errorCode;
+        this.errorParameter = errorParameter;
         this.errorArgumentId = errorArgumentId;
     }
 
@@ -47,7 +49,7 @@ public class ArgsException extends Exception {
             case INVALID_DOUBLE:
                 return String.format("Argument-sc expects a double but was '%s'.", errorArgumentId, errorParameter);
             case MISSING_DOUBLE:
-                return String.format("Could not find double parameter for -8c.", errorArgumentId);
+                return String.format("Could not find double parameter for -%c.", errorArgumentId);
             case INVALID_ARGUMENT_NAME:
                 return String.format("'%c'is not a valid argument name.", errorArgumentId);
             case INVALID_ARGUMENT_FORMAT:
