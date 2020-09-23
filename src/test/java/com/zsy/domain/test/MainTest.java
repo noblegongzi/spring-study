@@ -3,6 +3,7 @@ package com.zsy.domain.test;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.zsy.domain.ARequest;
 import com.zsy.enums.SomeEnum;
 import lombok.extern.log4j.Log4j2;
@@ -41,9 +42,14 @@ public class MainTest {
 
     @Test
     public void calendarTest() {
-        Calendar calendar = Calendar.getInstance();
+        Date date = new Date();
+        System.out.println(date.getTime());
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+8"));
+        System.out.println(calendar.getTimeInMillis());
+        calendar.setTime(date);
+        calendar.add(Calendar.HOUR, 1);
         System.out.println(calendar.getTime());
-        System.out.println(calendar.toString());
+        System.out.println(calendar.getTimeInMillis());
     }
 
     @Test
@@ -228,16 +234,11 @@ public class MainTest {
     @Test
     public void forTest() {
         String[] strs = new String[]{"hello", "world"};
-        if (strs.length > 0) {
-            for (String s :
-                    strs)
-                if (s != null
-                        || s.length() < 0) {
-                    s
-                            += "111";
-                    System.out.println(s);
-                }
-        }
+        for (String s : strs)
+            if (s != null || s.length() < 0) {
+                s += "111";
+                System.out.println(s);
+            }
     }
 
     @Test
@@ -265,4 +266,23 @@ public class MainTest {
     private static synchronized void sumAdd(int[] sum) {
         sum[0]++;
     }
+
+    @Test
+    public void intStreamTest() {
+        List<Integer> list = IntStream.range(0, 0).boxed().parallel().collect(Collectors.toList());
+        System.out.println(list);
+    }
+
+    @Test
+    public void containsNullTest() {
+        Set<Integer> set = Sets.newHashSet();
+        System.out.println(set.contains(null));
+    }
+
+    @Test
+    public void nullCompareNum() {
+        Integer i = null;
+        System.out.println(i < 1);
+    }
+
 }

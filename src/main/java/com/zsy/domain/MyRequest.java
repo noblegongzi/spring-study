@@ -15,5 +15,4 @@ public class MyRequest {
     private String name8;
     private String name9;
     private String name10;
-
 }

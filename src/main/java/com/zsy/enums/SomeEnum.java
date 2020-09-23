@@ -7,8 +7,16 @@ import java.util.Arrays;
 
 @Getter
 public enum SomeEnum {
-    TYPE1("type1"),
-    TYPE2("type2");
+    TYPE1("type1"){
+        class Inner{
+            String name="zsy";
+        }
+    },
+    TYPE2("type2"){
+        class Inner{
+            int age=10;
+        }
+    };
 
     private String name;
 
