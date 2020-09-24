@@ -285,4 +285,8 @@ public class MainTest {
         System.out.println(i < 1);
     }
 
+    public void testReflog(){
+
+    }
+
 }
