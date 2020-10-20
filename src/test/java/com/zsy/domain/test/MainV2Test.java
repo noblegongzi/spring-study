@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class MainV2Test extends BaseSpringTest {
@@ -116,12 +117,32 @@ public class MainV2Test extends BaseSpringTest {
         long value = -78921349827981L;
         BigDecimal bigDecimal = BigDecimal.valueOf(value);
         bigDecimal = bigDecimal.round(new MathContext((Long.toString(Math.abs(value))).length() - 2, RoundingMode.HALF_DOWN));
-        Assert.assertEquals(bigDecimal.longValue(),-78921349828000L);
+        Assert.assertEquals(bigDecimal.longValue(), -78921349828000L);
     }
 
     @Test
-    public void longTest(){
+    public void longTest() {
         long value = 78921349827981L;
+    }
+
+    @Test
+    public void finalLambdaTest() {
+        int[] sum = new int[1];
+        List<Integer> classroomStudentNum = IntStream.range(0, 100).boxed().collect(Collectors.toList());
+        classroomStudentNum.parallelStream().sequential().forEach(i -> sum[0] += i);
+        System.out.println(sum[0]);
+    }
+
+    @Test
+    public void hashcodeTest() {
+        System.out.println(new Integer(1203021930).hashCode());
+    }
+
+    @Test
+    public void bigdemicakTest2() {
+        long num = -10049L;
+        BigDecimal bigDecimal = new BigDecimal(num, new MathContext(String.valueOf(Math.abs(num)).length() - 2, RoundingMode.HALF_DOWN));
+        System.out.println(bigDecimal.toPlainString());
     }
 
 }
