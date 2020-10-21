@@ -140,8 +140,8 @@ public class MainV2Test extends BaseSpringTest {
 
     @Test
     public void bigdemicakTest2() {
-        long num = -10049L;
-        BigDecimal bigDecimal = new BigDecimal(num, new MathContext(String.valueOf(Math.abs(num)).length() - 2, RoundingMode.HALF_DOWN));
+        BigDecimal bigDecimal = new BigDecimal(897650);
+        bigDecimal = bigDecimal.round(new MathContext(bigDecimal.abs().toPlainString().length() - 2, RoundingMode.HALF_UP));
         System.out.println(bigDecimal.toPlainString());
     }
 
