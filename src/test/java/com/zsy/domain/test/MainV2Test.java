@@ -145,4 +145,8 @@ public class MainV2Test extends BaseSpringTest {
         System.out.println(bigDecimal.toPlainString());
     }
 
+    @Test
+    public void jsonTest() {
+    }
+
 }
