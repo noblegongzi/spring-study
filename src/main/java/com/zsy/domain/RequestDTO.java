@@ -15,9 +15,10 @@ public class RequestDTO {
     private String name8;
     private String name9;
     private String name10;
+    private Integer age;
 
     public RequestDTO(Integer nameInteger) {
-        String name=nameInteger.toString();
+        String name = nameInteger.toString();
         this.name = name;
         this.name1 = name;
         this.name2 = name;
@@ -29,5 +30,9 @@ public class RequestDTO {
         this.name8 = name;
         this.name9 = name;
         this.name10 = name;
+    }
+
+    public RequestDTO() {
+
     }
 }

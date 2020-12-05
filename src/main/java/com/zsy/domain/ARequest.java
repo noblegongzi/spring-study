@@ -4,7 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class ARequest implements Request {
-    private final String name="111";
+    private String name;
+
     @Override
     public void print() {
         System.out.println("A");
